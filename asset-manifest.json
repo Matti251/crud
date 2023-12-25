@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/crud_practise/static/css/main.445bcac1.css",
+    "main.js": "/crud_practise/static/js/main.897bc0e6.js",
+    "static/media/White-01-e1664190808110.webp": "/crud_practise/static/media/White-01-e1664190808110.b6d9d140cdfde0594b4f.webp",
+    "index.html": "/crud_practise/index.html",
+    "main.445bcac1.css.map": "/crud_practise/static/css/main.445bcac1.css.map",
+    "main.897bc0e6.js.map": "/crud_practise/static/js/main.897bc0e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.445bcac1.css",
+    "static/js/main.897bc0e6.js"
+  ]
+}
