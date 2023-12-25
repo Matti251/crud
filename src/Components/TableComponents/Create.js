@@ -25,6 +25,7 @@ export const Create = () => {
     axios.delete(`${url}/${id}`).then(() => {
       getData();
     });
+    alert("are you sure")
   };
   // localStorageUSe
   const setLocalStorage = (
@@ -51,7 +52,7 @@ export const Create = () => {
         <h1>User Data</h1>
       </header>
       <article>
-        <h2>How they compare</h2>
+        <h2>How They compare</h2>
 
         <table className="vitamins">
           <thead>

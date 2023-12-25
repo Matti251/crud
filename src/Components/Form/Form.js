@@ -126,7 +126,7 @@ export const Form = () => {
             <input
               className="form-control"
               id="contact"
-              type="text"
+              type="text"       
               required=""
               placeholder="Type your Mobile Number"
               onChange={(e) =>
