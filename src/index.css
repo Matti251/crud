@@ -1,13 +1,390 @@
+html {
+  height: 100%;
+}
 body {
+  background: #a19898;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
+  background-color: #363333;
+  background-size: 20px 20px;
+}
+.form {
+  max-width: calc(100vw - 40px);
+  width: 380px;
+  height: auto;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #fff;
+  margin: 3% auto;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 5px solid #ccc;
+  border-top: 5px solid #ccc;
+  border-right: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+}
+.form h2 {
+  margin: 18px 0;
+  padding-bottom: 10px;
+  width: 210px;
+  color: #1e439b;
+  font-size: 22px;
+  border-bottom: 3px solid #ff5501;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+input {
+  width: 60%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #bebed2;
+  transition: all 0.3s;
+}
+.form p:before {
+  content: attr(type);
+  display: block;
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: #5a5a5a;
+  float: left;
+  width: 40%;
+  transition: all 0.3s;
+}
+button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button:hover {
+  background: #78788c;
+  color: #fff;
+}
+.tright {
+  text-align: right;
+  margin-top: 20px;
+}
+.ui-menu {
+  max-height: 150px;
+  overflow: auto;
+}
+.ui-menu .ui-menu-item {
+  padding: 5px;
+  font-size: 14px;
+}
+.relative {
+  position: relative;
+}
+.relative i.fa:before {
+  color: #444;
+  padding: 10px;
+  position: absolute;
+  left: -3px;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.relative i.fa {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  text-align: center;
+  border-radius: 0 4px 4px 0;
+  width: 0;
+  height: 0;
+  z-index: 99;
+  border-left: 20px solid transparent;
+  border-right: 30px solid #ccc;
+  border-bottom: 34px solid #ccc;
+  transition: all 0.15s ease-in-out;
+}
+.form-control:focus {
+  border-color: #1e439b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgb(30, 102, 195);
+}
+.relative input:focus + i.fa {
+  border-left: 20px solid transparent;
+  border-right: 30px solid #1e439b;
+  border-bottom: 34px solid #1e439b;
+}
+.relative input:focus + i.fa:before {
+  color: #fff;
+}
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+  background-color: #fff;
+}
+
+/* --- Animated Buttons --- */
+.movebtn {
+  background-color: transparent;
+  display: inline-block;
+  width: 80px;
+  margin: 0 3px;
+  background-image: none;
+  padding: 5px 0px;
+  margin-bottom: 20px;
+  border-radius: 0;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(
+    0.5,
+    1.65,
+    0.37,
+    0.66
+  );
+  transition-timing-function: cubic-bezier(
+    0.5,
+    1.65,
+    0.37,
+    0.66
+  );
+}
+.movebtnre {
+  border: 2px solid #ff5501;
+  box-shadow: inset 0 0 0 0 #ff5501;
+  color: #ff5501;
+}
+.movebtnsu {
+  border: 2px solid #1e439b;
+  box-shadow: inset 0 0 0 0 #1e439b;
+  color: #1e439b;
+}
+.movebtnre:focus,
+.movebtnre:hover,
+.movebtnre:active {
+  background-color: transparent;
+  color: #fff;
+  border-color: #ff5501;
+  box-shadow: inset 96px 0 0 0 #ff5501;
+}
+.movebtnsu:focus,
+.movebtnsu:hover,
+.movebtnsu:active {
+  background-color: transparent;
+  color: #fff;
+  border-color: #1e439b;
+  box-shadow: inset 96px 0 0 0 #1e439b;
+}
+
+/* --- Media Queries --- */
+
+@media only screen and (max-width: 600px) {
+  p:before {
+    content: attr(type);
+    width: 100%;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+/* table css start */
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oxygen);
+
+/* Page layout */
+
+body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oxygen', sans-serif;
+    color: #444;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 300;
+}
+
+header {
+    margin: 0;
+    background: #000;
+    height: 65px;
+    padding: 1px;
+}
+
+article {
+    margin: 40px 30px;
+}
+
+h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 2.3em;
+    line-height: 44px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 900;
+    margin: 0;
+    padding: 10px 0 0 30px;
+    letter-spacing: 2px;
+}
+
+h2 { margin: 20px 0 10px 0;
+    font-weight: 900;
+}
+
+p {
+    margin: 20px 0 5px 0;
+}
+
+
+/* Table Layout */
+header h1{
+  font-size: 50px;
+  font-weight: 800;
+  color: #fff;
+}
+
+table.vitamins {
+    margin: 20px 0 0 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #212121;
+    color: #fff;
+}
+
+table.vitamins th, table.vitamins td {
+    text-align: center;
+}
+
+table.vitamins thead {
+    line-height: 12px;
+    background: #2e63e7;
+    text-transform: uppercase;
+}
+
+table.vitamins thead th {
+    color: #fff;
+    padding: 10px;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+    font-size: 12px;
+}
+
+table.vitamins thead th:nth-child(1) {
+    width: 15%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+table.vitamins thead th:nth-child(2) {
+    width: 15%;
+}
+
+table.vitamins thead th:nth-child(3) {
+    width: 15%;
+}
+
+table.vitamins thead th:nth-child(4) {
+    width: 15%;
+}
+table.vitamins thead th:nth-child(5) {
+    width: 8%;
+}
+table.vitamins thead th:nth-child(6) {
+    width: 8%;
+}
+
+table.vitamins tbody {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+table.vitamins tbody tr {
+    border-top: 2px solid rgba(109, 176, 231, 0.8);
+    transition: 0.6s, color 0.6s;
+}
+
+table.vitamins tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+table.vitamins tbody tr:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 0.7);
+
+}
+
+table.vitamins tbody td {
+    padding: 8px;
+}
+
+table.vitamins tbody tr:hover td:first-child {
+    background: rgba(0,0,0,0);
+}
+
+table.vitamins tbody td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 700;
+    background: rgba(109, 176, 231, 0.35);
+    transition:  0.6s;
+}
+
+table.vitamins tfoot {
+    font-size: 0.8em;
+}
+
+table.vitamins tfoot tr {
+    border-top: 2px solid #2e63e7;
+}
+
+table.vitamins tfoot td {
+    color: rgba(255,255,215,0.6);
+    text-align: left;
+    line-height: 15px;
+    padding: 15px 20px;
+}
+
+
+/* Mobile Layout */
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 34px;
+        line-height: 36px;
+        padding-left: 15px;
+    }
+
+    article {
+        margin: 10px 15px;
+    }
+
+    table.vitamins {
+        font-size: 0.8em;
+    }
+}
+.tablebtn:focus,
+.tablebtn:hover,
+.tablebtn:active {
+  background-color: transparent;
+  color: #fff;
+  border-color: #9b1e1e;
+  box-shadow: inset 96px 0 0 0 #9b1e1e;
+}
+.tablebtn{
+  border: 2px solid #9b1e1e;
+  box-shadow: inset 0 0 0 0 #9b1e1e;
+  color: #9b1e1e;
+  width: 80px;
+  padding: 8px 8px;
+}
+.tablebtnu{
+  width: 80px;
+  padding: 8px 8px;
 }
