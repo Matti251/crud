@@ -37,6 +37,10 @@ body {
   border-bottom: 3px solid #ff5501;
   font-weight: 600;
   margin-bottom: 30px;
+  transition: ease-in-out 0.5s;
+}
+.form h2:hover{
+  border-bottom: 3px solid #1e439b;
 }
 input {
   width: 60%;
