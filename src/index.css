@@ -1,8 +1,8 @@
-
 body {
   background: #a19898;
   margin: 0;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
   background-color: #363333;
   background-size: 20px 20px;
   background-image: url(../src/img/White-01-e1664190808110.webp);
@@ -37,7 +37,7 @@ body {
   margin-bottom: 30px;
   transition: ease-in-out 0.5s;
 }
-.form h2:hover{
+.form h2:hover {
   border-bottom: 3px solid #1e439b;
 }
 input {
@@ -196,186 +196,187 @@ fieldset[disabled] .form-control {
   input {
     width: 100%;
   }
+  body{
+    background-size: auto;
+  }
+  
 }
 
 /* table css start */
-
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oxygen);
 
 /* Page layout */
 
 body {
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
-    font-family: 'Oxygen', sans-serif;
-    color: #444;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: 300;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: "Oxygen", sans-serif;
+  color: #444;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 300;
 }
 
 header {
-    margin: 0;
-    background: #212121 ;
-    height: 65px;
-    padding: 1px;
+  margin: 0;
+  background: #212121;
+  height: 65px;
+  padding: 1px;
 }
 
 article {
-    margin: 40px 4px;
-    
+  margin: 40px 4px;
 }
 
 h1 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    letter-spacing: 1px;
-    font-size: 2.3em;
-    line-height: 44px;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 900;
-    margin: 0;
-    padding: 10px 0 0 30px;
-    letter-spacing: 2px;
+  font-family: "Open Sans Condensed", sans-serif;
+  letter-spacing: 1px;
+  font-size: 2.3em;
+  line-height: 44px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 900;
+  margin: 0;
+  padding: 10px 0 0 30px;
+  letter-spacing: 2px;
 }
 
-h2 { margin: 20px 0 10px 0;
-    font-weight: 900;
+h2 {
+  margin: 20px 0 10px 0;
+  font-weight: 900;
 }
 
 p {
-    margin: 20px 0 5px 0;
+  margin: 20px 0 5px 0;
 }
 
-
 /* Table Layout */
-header h1{
+header h1 {
   font-size: 50px;
   font-weight: 800;
   color: #fff;
 }
 
 table.vitamins {
-    margin: 20px 0 0 0;
-    border-collapse: collapse;
-    border-spacing: 0;
-    background: #212121;
-    color: #fff;
-    width: -webkit-fill-available;
+  margin: 20px 0 0 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: #212121;
+  color: #fff;
+  width: -webkit-fill-available;
 }
 
-table.vitamins th, table.vitamins td {
-    text-align: center;
+table.vitamins th,
+table.vitamins td {
+  text-align: center;
 }
 
 table.vitamins thead {
-    line-height: 12px;
-    background: #2e63e7;
-    text-transform: uppercase;
+  line-height: 12px;
+  background: #2e63e7;
+  text-transform: uppercase;
 }
 
 table.vitamins thead th {
-    color: #fff;
-    padding: 10px;
-    letter-spacing: 1px;
-    vertical-align: bottom;
-    font-size: 12px;
+  color: #fff;
+  padding: 10px;
+  letter-spacing: 1px;
+  vertical-align: bottom;
+  font-size: 12px;
 }
 
 table.vitamins thead th:nth-child(1) {
-    width: 15%;
-    text-align: left;
-    padding-left: 20px;
+  width: 15%;
+  text-align: left;
+  padding-left: 20px;
 }
 
 table.vitamins thead th:nth-child(2) {
-    width: 15%;
+  width: 15%;
 }
 
 table.vitamins thead th:nth-child(3) {
-    width: 15%;
+  width: 15%;
 }
 
 table.vitamins thead th:nth-child(4) {
-    width: 15%;
+  width: 15%;
 }
 table.vitamins thead th:nth-child(5) {
-    width: 8%;
+  width: 8%;
 }
 table.vitamins thead th:nth-child(6) {
-    width: 8%;
+  width: 8%;
 }
 
 table.vitamins tbody {
-    font-size: 12px;
-    line-height: 15px;
+  font-size: 12px;
+  line-height: 15px;
 }
 
 table.vitamins tbody tr {
-    border-top: 2px solid rgba(109, 176, 231, 0.8);
-    transition: 0.6s, color 0.6s;
+  border-top: 2px solid rgba(109, 176, 231, 0.8);
+  transition: 0.6s, color 0.6s;
 }
 
 table.vitamins tbody tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 table.vitamins tbody tr:hover {
-    color: #000;
-    background: rgba(255, 255, 255, 0.7);
-
+  color: #000;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 table.vitamins tbody td {
-    padding: 8px;
+  padding: 8px;
 }
 
 table.vitamins tbody tr:hover td:first-child {
-    background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
 table.vitamins tbody td:first-child {
-    text-align: left;
-    padding-left: 20px;
-    font-weight: 700;
-    background: rgba(109, 176, 231, 0.35);
-    transition:  0.6s;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 700;
+  background: rgba(109, 176, 231, 0.35);
+  transition: 0.6s;
 }
 
 table.vitamins tfoot {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 table.vitamins tfoot tr {
-    border-top: 2px solid #2e63e7;
+  border-top: 2px solid #2e63e7;
 }
 
 table.vitamins tfoot td {
-    color: rgba(255,255,215,0.6);
-    text-align: left;
-    line-height: 15px;
-    padding: 15px 20px;
+  color: rgba(255, 255, 215, 0.6);
+  text-align: left;
+  line-height: 15px;
+  padding: 15px 20px;
 }
-
 
 /* Mobile Layout */
 
 @media screen and (max-width: 400px) {
-    h1 {
-        font-size: 34px;
-        line-height: 36px;
-        padding-left: 15px;
-    }
+  h1 {
+    font-size: 34px;
+    line-height: 36px;
+    padding-left: 15px;
+  }
 
-    article {
-        margin: 10px 15px;
-    }
+  article {
+    margin: 10px 15px;
+  }
 
-    table.vitamins {
-        font-size: 0.8em;
-    }
+  table.vitamins {
+    font-size: 0.8em;
+  }
 }
 .tablebtn:focus,
 .tablebtn:hover,
@@ -385,14 +386,14 @@ table.vitamins tfoot td {
   border-color: #9b1e1e;
   box-shadow: inset 96px 0 0 0 #9b1e1e;
 }
-.tablebtn{
+.tablebtn {
   border: 2px solid #9b1e1e;
   box-shadow: inset 0 0 0 0 #9b1e1e;
   color: #9b1e1e;
   width: 80px;
   padding: 8px 8px;
 }
-.tablebtnu{
+.tablebtnu {
   width: 80px;
   padding: 8px 8px;
 }
