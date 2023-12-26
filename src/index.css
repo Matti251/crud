@@ -1,6 +1,4 @@
-html {
-  height: 100%;
-}
+
 body {
   background: #a19898;
   margin: 0;
@@ -227,6 +225,7 @@ header {
 
 article {
     margin: 40px 4px;
+    
 }
 
 h1 {
@@ -264,6 +263,7 @@ table.vitamins {
     border-spacing: 0;
     background: #212121;
     color: #fff;
+    width: -webkit-fill-available;
 }
 
 table.vitamins th, table.vitamins td {
