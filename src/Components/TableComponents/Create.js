@@ -3,7 +3,10 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+} from "react-router-dom";
 
 export const Create = () => {
   // Api url
@@ -25,7 +28,9 @@ export const Create = () => {
     axios.delete(`${url}/${id}`).then(() => {
       getData();
     });
-    alert("are you sure")
+    if (data.length <= 1) {
+      alert("Are you sure");
+    }
   };
   // localStorageUSe
   const setLocalStorage = (
@@ -44,7 +49,10 @@ export const Create = () => {
       companyName
     );
   };
-
+  const navigate = useNavigate();
+  if (data.length <= 0) {
+    navigate("/");
+  }
   // jsx
   return (
     <>
@@ -105,17 +113,15 @@ export const Create = () => {
                   </Link>
                 </td>
                 <td>
-                  
-                    <button
-                      className="movebtn movebtnsu mb-0 tablebtn"
-                      type="Submit"
-                      onClick={() =>
-                        handleDelete(eachData.id)
-                      }>
-                      Delete
-                      <i className="fa fa-fw fa-trash form-icon"></i>
-                    </button>
-                 
+                  <button
+                    className="movebtn movebtnsu mb-0 tablebtn"
+                    type="Submit"
+                    onClick={() =>
+                      handleDelete(eachData.id)
+                    }>
+                    Delete
+                    <i className="fa fa-fw fa-trash form-icon"></i>
+                  </button>
                 </td>
               </tr>
             ))}
