@@ -4,6 +4,7 @@ import React, {
   useEffect,
 } from "react";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Update = () => {
   // useState
@@ -39,8 +40,9 @@ export const Update = () => {
         }
       )
       .then(() => navigate("/Create"));
+    toast.success("Update");
   };
-// jsx
+  // jsx
   return (
     <>
       <form className="form">
@@ -117,7 +119,6 @@ export const Update = () => {
             <i className="fa fa-building"></i>
           </div>
         </div>
-
         <div className="tright">
           <a href="/">
             <button
@@ -128,6 +129,7 @@ export const Update = () => {
               <i className="fa fa-fw fa-paper-plane"></i>
             </button>
           </a>
+          <Toaster />
         </div>
       </form>
     </>

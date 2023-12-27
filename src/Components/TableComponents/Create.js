@@ -1,35 +1,44 @@
 import axios from "axios";
+import HashLoader from "react-spinners/HashLoader";
 import React, {
   useEffect,
   useState,
 } from "react";
-import {
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Create = () => {
-  // Api url
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
   const url =
     "https://6584320c4d1ee97c6bcf32fb.mockapi.io/crud";
-  const [data, setData] = useState([]);
-  // getData read axios define
-  const getData = () => {
-    axios.get(url).then((res) => {
-      setData(res.data);
-    });
+  const getData = async () => {
+    try {
+      const { data } = await axios.get(url);
+      setData(data);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   };
-  // useEffect use
   useEffect(() => {
     getData();
-  }, []);
+    if (!loading && data.length == 0) {
+      navigate("/");
+    }
+  });
   // Delete request
   const handleDelete = (id) => {
     axios.delete(`${url}/${id}`).then(() => {
       getData();
     });
-    if (data.length <= 1) {
-      alert("Are you sure");
+    if (data.length >= 1) {
+      toast.success("Delete", {
+        duration: 4000,
+      });
     }
   };
   // localStorageUSe
@@ -49,15 +58,20 @@ export const Create = () => {
       companyName
     );
   };
-  const navigate = useNavigate();
-  if (data.length <= 0) {
+  const create = () => {
     navigate("/");
-  }
-  // jsx
+  };
   return (
     <>
       <header>
         <h1>User Data</h1>
+        <button
+          className="movebtn movebtnsu mb-0 tablebtn createBtn"
+          type="Submit"
+          onClick={create}>
+          Create
+          <i className="fa fa-fw fa-plus form-icon"></i>
+        </button>
       </header>
       <article>
         <h2>How They compare</h2>
@@ -86,7 +100,7 @@ export const Create = () => {
           </tfoot>
 
           <tbody>
-            {/* map use for data child */}
+            {/* map */}
             {data.map((eachData) => (
               <tr key={eachData.id}>
                 <td>{eachData.name}</td>
@@ -122,11 +136,19 @@ export const Create = () => {
                     Delete
                     <i className="fa fa-fw fa-trash form-icon"></i>
                   </button>
+                  <Toaster />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <HashLoader
+          color="#36d7b7"
+          loading={loading}
+          size={40}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </article>
     </>
   );

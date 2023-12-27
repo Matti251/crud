@@ -1,86 +1,115 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import toast, { Toaster } from "react-hot-toast";
+import {
+  ToastContainer,
+  toast,
+} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Form = () => {
-  // use state
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [contact, setContact] = useState("");
-  const [companyName, setComapnyName] =
-    useState("");
+  const [formState, setFormState] = useState({});
+  const [error, setError] = useState({});
 
-  // useavigate
   const history = useNavigate();
-  // btn submit function & axios
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("work");
-    // if else use required field
-    if (!name) {
-      document.getElementById(
-        "name"
-      ).style.border = "1px solid red";
-    } else {
-      document.getElementById(
-        "name"
-      ).style.border = "1px solid green";
+    if (!formState.name) {
+      setError({ ...error, name: true });
     }
-    if (!email) {
-      document.getElementById(
-        "email"
-      ).style.border = "1px solid red";
-    } else {
-      document.getElementById(
-        "email"
-      ).style.border = "1px solid green";
+
+    if (!formState.email) {
+      setError({ ...error, email: true });
     }
-    if (!companyName) {
-      document.getElementById(
-        "companyName"
-      ).style.border = "1px solid red";
-    } else {
-      document.getElementById(
-        "companyName"
-      ).style.border = "1px solid green";
-    }
-    if (!contact) {
-      document.getElementById(
-        "contact"
-      ).style.border = "1px solid red";
-    } else {
-      document.getElementById(
-        "contact"
-      ).style.border = "1px solid green";
-    }
+
+    // //
+    // if (!name) {
+    //   document.getElementById(
+    //     "name"
+    //   ).style.border = "1px solid red";
+    // } else {
+    //   document.getElementById(
+    //     "name"
+    //   ).style.border = "1px solid green";
+    // }
+    // if (!email) {
+    //   document.getElementById(
+    //     "email"
+    //   ).style.border = "1px solid red";
+    // } else {
+    //   document.getElementById(
+    //     "email"
+    //   ).style.border = "1px solid green";
+    // }
+    // if (!companyName) {
+    //   document.getElementById(
+    //     "companyName"
+    //   ).style.border = "1px solid red";
+    // } else {
+    //   document.getElementById(
+    //     "companyName"
+    //   ).style.border = "1px solid green";
+    // }
+    // if (!contact) {
+    //   document.getElementById(
+    //     "contact"
+    //   ).style.border = "1px solid red";
+    // } else {
+    //   document.getElementById(
+    //     "contact"
+    //   ).style.border = "1px solid green";
+    // }
     if (
-      !name ||
-      !email ||
-      !companyName ||
-      !contact
+      !formState.name ||
+      !formState.email ||
+      !formState.companyName ||
+      !formState.contact
     ) {
-      alert("Please enter all required fields");
+      toast.error(" Please required all Field", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     axios
       .post(
         "https://6584320c4d1ee97c6bcf32fb.mockapi.io/crud",
-        {
-          name: name,
-          email: email,
-          contact: contact,
-          companyName: companyName,
-        }
+        formState
       )
       .then(() => {
         history("/Create");
+        setError({});
+      })
+      .catch((error) => {
+        console.error("Error", error);
       });
+    const resolveAfter3Sec = new Promise(
+      (resolve) => setTimeout(resolve, 500)
+    );
+    // toaster
+    toast.promise(resolveAfter3Sec, {
+      position: "top-center",
+      pending: "Promise is pending",
+      success: "Promise resolved 👌",
+      error: "Promise rejected 🤯",
+    });
   };
 
   // jsx
   return (
     <>
-      <form className="form">
+      <form
+        className="form"
+        onSubmit={handleSubmit}>
         <h2>User Profile</h2>
         <div className="form-group">
           <label htmlFor="email">
@@ -89,13 +118,20 @@ export const Form = () => {
           <div className="relative">
             <input
               className="form-control"
-              id="name"
               type="text"
               required=""
               placeholder="Type your name here"
-              onChange={(e) =>
-                setName(e.target.value)
+              onChange={({ target }) =>
+                setFormState({
+                  ...formState,
+                  name: target.value,
+                })
               }
+              style={{
+                border: error.name
+                  ? "1px solid red"
+                  : "",
+              }}
             />
             <i className="fa fa-user"></i>
           </div>
@@ -111,8 +147,11 @@ export const Form = () => {
               type="email"
               required=""
               placeholder="Type your email address"
-              onChange={(e) =>
-                setEmail(e.target.value)
+              onChange={({ target }) =>
+                setFormState({
+                  ...formState,
+                  email: target.value,
+                })
               }
             />
             <i className="fa fa-envelope"></i>
@@ -126,11 +165,14 @@ export const Form = () => {
             <input
               className="form-control"
               id="contact"
-              type="text"       
+              type="text"
               required=""
               placeholder="Type your Mobile Number"
-              onChange={(e) =>
-                setContact(e.target.value)
+              onChange={({ target }) =>
+                setFormState({
+                  ...formState,
+                  contact: target.value,
+                })
               }
             />
             <i className="fa fa-phone"></i>
@@ -146,8 +188,11 @@ export const Form = () => {
               id="companyName"
               required=""
               placeholder="Mention your company link(url)"
-              onChange={(e) =>
-                setComapnyName(e.target.value)
+              onChange={({ target }) =>
+                setFormState({
+                  ...formState,
+                  companyName: target.value,
+                })
               }
             />
             <i className="fa fa-building"></i>
@@ -166,12 +211,12 @@ export const Form = () => {
           <a href="/">
             <button
               className="movebtn movebtnsu"
-              type="Submit"
-              onClick={handleSubmit}>
+              type="Submit">
               Submit
               <i className="fa fa-fw fa-paper-plane"></i>
             </button>
           </a>
+          <ToastContainer />
         </div>
       </form>
     </>
